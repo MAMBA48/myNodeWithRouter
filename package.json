@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "watch": "nodemon -e ts,json src/routes/index.ts"
+    "watch": "nodemon -e ts,json src/server/server.ts"
   },
   "author": "Campos",
   "license": "ISC",
