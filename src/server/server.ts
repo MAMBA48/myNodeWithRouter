@@ -17,7 +17,7 @@ mongoose.connect(connection)
 
 //configurando a sessao
 const session = require('express-session')
-const MongoStore = require('connect-mongo')(session)
+const MongoStore = require('connect-mongo')
 const flash = require('connect-flash')
 
 app.use(express.urlencoded({extended: true}))
@@ -27,8 +27,8 @@ app.use(express.urlencoded({extended: true}))
 const sessionOptions = session({
     secret: '0dfsd4gd5g4s65dd4 4 4d5d e fe e',
     resave: false,
-    store: new MongoStore({ mongooseConnection: mongoose.connection }),
     saveUninitialized: false,
+    store: MongoStore.create({ mongoUrl: connection }),
     cookie: {
         maxAge: 1000 * 60 * 60,
         httpOnly: true
